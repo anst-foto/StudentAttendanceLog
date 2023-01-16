@@ -1,0 +1,40 @@
+﻿@startmindmap
+'https://plantuml.com/mindmap-diagram
+
+caption Ментальная карта проекта
+title Журнал посещаемости студентов
+
+* Журнал посещаемости студентов
+** БД
+*** СУБД
+**** MySQL
+*** Списки
+**** Студенты
+**** Предметы
+**** Темы
+**** Посещаемость
+**** Контрольные точки
+** App
+*** Web
+**** Vue
+**** ASP.Net
+***** Razor
+***** Blazor
+*** Desktop
+**** WPF
+**** Avalonia
+**** Electron
+*** Mobile
+**** ?
+*** Backend
+**** C#
+*** Передача данных между модулями
+**** JSON
+
+header
+My super header
+endheader
+
+center footer v0.1
+
+@endmindmap
