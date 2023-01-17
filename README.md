@@ -2,8 +2,8 @@
 
 ## Ментальная карта проекта
 
-![mindmap](mindmap.svg)
+![mindmap](.documentation/mindmap/mindmap.svg)
 
 ## Схема БД
 
-![db_diagram]()
+![db_diagram](.documentation/db/db_diagram.svg)
