@@ -1,0 +1,65 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class table_attendance_log {
+   date_time: datetime
+   teacher_id: varchar(255)
+   subject_id: varchar(255)
+   student_id: varchar(255)
+   attendance_status_id: varchar(255)
+   id  /* UUID */: varchar(255)
+}
+class table_attendance_statuses {
+   status: text
+   attendance_status_id  /* UUID */: varchar(255)
+}
+class table_connections_subject_group_teacher {
+   subject_id: varchar(255)
+   group_id: varchar(255)
+   teacher_id: varchar(255)
+   id  /* UUID */: varchar(255)
+}
+class table_faculties {
+   name: text
+   faculty_id  /* UUID */: varchar(255)
+}
+class table_groups {
+   name: text
+   faculty_id: varchar(255)
+   group_id  /* UUID */: varchar(255)
+}
+class table_persons {
+   first_name: text
+   last_name: text
+   patronymic: text
+   person_id  /* UUID */: varchar(255)
+}
+class table_students {
+   person_id: varchar(255)
+   group_id: varchar(255)
+   student_id  /* UUID */: varchar(255)
+}
+class table_subjects {
+   name: text
+   subject_id  /* UUID */: varchar(255)
+}
+class table_teachers {
+   person_id: varchar(255)
+   teacher_id  /* UUID */: varchar(255)
+}
+
+table_attendance_log                     -[#595959,plain]-^  table_attendance_statuses               : "attendance_status_id"
+table_attendance_log                     -[#595959,plain]-^  table_students                          : "student_id"
+table_attendance_log                     -[#595959,plain]-^  table_subjects                          : "subject_id"
+table_attendance_log                     -[#595959,plain]-^  table_teachers                          : "teacher_id"
+table_connections_subject_group_teacher  -[#595959,plain]-^  table_groups                            : "group_id"
+table_connections_subject_group_teacher  -[#595959,plain]-^  table_subjects                          : "subject_id"
+table_connections_subject_group_teacher  -[#595959,plain]-^  table_teachers                          : "teacher_id"
+table_groups                             -[#595959,plain]-^  table_faculties                         : "faculty_id"
+table_students                           -[#595959,plain]-^  table_groups                            : "group_id"
+table_students                           -[#595959,plain]-^  table_persons                           : "person_id"
+table_teachers                           -[#595959,plain]-^  table_persons                           : "person_id"
+@enduml
